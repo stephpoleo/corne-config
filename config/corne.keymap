@@ -17,47 +17,47 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
+                base {
 // -----------------------------------------------------------------------------------------
-// | TAB:ESC   | ' " | , < | . > |  P  |  Y  |         | F   |  G   |  C  |  R  |  L  | BKSP |
-// | CAP       |  A  |  O  |  E  |  U  |  I  |         |  D  |  H   |  T  |  N  |  S  |  DEL |
-// | LSFT CTRL | : ; |  q  | J   | K   |  X  |         |  B  |  M   |  W  |  V  |  Z  | ALT  |
-//                         | GUI | LWR | SPC |         | ENT | RSE  | GUI |
+// | TAB       | ' " | ,   | .   |  P  |  Y  |         | F   |  G   |  C  |  R  |  L  | BKSP |
+// | CAPS      |  A  |  O  |  E  |  U  |  I  |         |  D  |  H   |  T  |  N  |  S  |  DEL |
+// | LCTRL     | : ; |  q  | J   | K   |  X  |         |  B  |  M   |  W  |  V  |  Z  | ESC  |
+//                     | COMMAND | LWR | SPC |         | ENT | RSE  | ALT |
 
                         bindings = <
-   &mt ESC TAB      &mt DOUBLE_QUOTES SINGLE_QUOTE   &mt LESS_THAN COMMA  &mt GREATER_THAN DOT  &kp P  &kp Y                   &kp F &kp G  &kp C     &kp R   &kp L    &kp BSPC
-   &kp CAPSLOCK     &kp A                            &kp O                &kp E                 &kp U  &kp I                   &kp D &kp H  &kp T     &kp N   &kp S    &kp RET
-   &mt LCTRL LSHFT  &mt SEMICOLON COLON              &kp Q                &kp J                 &kp K  &kp X                   &kp B &kp M  &kp W     &kp V   &kp Z    &kp RALT
-                                  &kp LGUI &mo 1  &kp SPACE                    &kp BSPC  &mo 2  &kp RGUI
-                        >;
-                };
-                
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  #   |   _  |   &  |   |  |  ?  |  !  |            |  +  |  UP  |  -  |  1  |  2  |   3  |
-// |  {   |   [  |   ]  |   }  |  (  |  )  |            | LFT | DWN  | RGT |  4  |  5  |   6  |
-// |      |      |      |  @   |  $  |     |            |  *  |  0   | / \ |  7  |  8  |   9  |
-//                       |     |     |     |            |     |  =   |     |
-                        bindings = <
-   &kp NUHS   &kp UNDER   &kp AMPS     &kp PIPE     &kp QMARK   &kp EXCL           &kp PLUS    &kp UP     &kp MINUS         &kp N1   &kp N2   &kp N3
-   &kp LBRC   &kp LBKT    &kp RBKT     &kp RBRC     &kp LPAR    &kp RPAR           &kp LEFT    &kp DOWN   &kp RIGHT         &kp N4   &kp N5   &kp N6
-   &none      &none       &none        &kp AT       &kp DLLR    &none              &kp STAR    &kp PG_DN  &mt SLASH BSLH    &kp N7   &kp N8   &kp N9
-                          	        &none       &none       &none              &none       &kp EQUAL     &none
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+&kp TAB    &mt SQT DOUBLE_QUOTES  &kp COMMA  &kp DOT           &kp P  &kp Y        &kp F      &kp G  &kp C     &kp R  &kp L  &kp BSPC
+&kp CAPS   &kp A                  &kp O      &kp E             &kp U  &kp I        &kp D      &kp H  &kp T     &kp N  &kp S  &kp DEL
+&kp LCTRL  &mt COLON SEMICOLON    &kp Q      &kp J             &kp K  &kp X        &kp B      &kp M  &kp W     &kp V  &kp Z  &kp ESC
+                                             &kp LEFT_COMMAND  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp LALT
+            >;
         };
+                
+                lower {
+// -----------------------------------------------------------------------------------------
+// | TAB  |   1  |   2  |   3  |  4  |  5  |            |  6  |  7   |  8  |  9  |  0  | BSPC  |
+// | SHF  |  F1  |  F2  |  F3  | F4  | F5  |            | LFT | DWN  | UP  | RGT |     |       |
+// | CTRL |  F6  |  F7  |  F8  | F9  |     |            |  *  |  0   | / \ |  7  |     |       |
+//                   | COMMAND |     | SPC |            | ENT |      | ALT |
+                        bindings = <
+&kp TAB    &kp N1  &kp N2  &kp N3    &kp N4  &kp N5       &kp N6     &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
+&kp LSHFT  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5       &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&kp LCTRL  &kp F6  &kp F7  &kp F8    &kp F9  &trans       &trans     &kp F10   &kp F11   &kp F12    &trans  &trans
+                           &kp LGUI  &trans  &kp SPACE    &kp ENTER  &trans    &kp RALT
+            >;
+        };
+
+                raise {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | SHF  |  ?  |  -  |  [  |  (  |  :  |        |  ;  |  )  |  ]  |  +  |  =  |  `   |
+// | CTRL |  ~  |  _  |  <  |  {  |  "  |        |  '  |  }  |  >  |  |  |  /  |  \   |
+//                | COMMAND |     | SPC |        | ENT |     | ALT |
+                        bindings = <
+&kp TAB    &kp EXCLAMATION  &kp AT          &kp HASH          &kp DOLLAR            &kp PERCENT          &kp CARET      &kp AMPERSAND          &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
+&kp LSHFT  &kp QUESTION     &kp MINUS       &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp COLON            &kp SEMICOLON  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS              &kp EQUAL              &kp GRAVE
+&kp LCTRL  &kp TILDE        &kp UNDERSCORE  &kp LESS_THAN     &kp LEFT_BRACE        &kp DOUBLE_QUOTES    &kp SQT        &kp RIGHT_BRACE        &kp GREATER_THAN   &kp PIPE              &kp SLASH              &kp LG(BACKSLASH)
+                                            &kp LGUI          &trans                &kp SPACE            &kp ENTER      &trans                 &kp RALT
+            >;
+        };
+    };
 };

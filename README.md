@@ -4,6 +4,12 @@
 ![image](https://github.com/stephpoleo/corne-config/assets/25173418/d7e0a93b-f150-4452-8161-6decb604fab7)
 ![image](https://github.com/stephpoleo/corne-config/assets/25173418/03671c31-aba4-482f-a0b6-4bf72c459047)
 
+## Hardware
+
+- **Board:** nice!nano v2
+- **Display:** nice!view (e-paper)
+- **Firmware:** [ZMK](https://zmk.dev) pinned to `v0.3.0`
+
 ## Layers
 
 ### Base (Dvorak)
@@ -42,9 +48,10 @@
 //                       |      |      |      |        |     |     |     |
 ```
 
-**Bluetooth:** Fila superior para seleccionar perfiles BT (1-5). `BTCLR` limpia el perfil activo.
+Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 
-**Gaming toggle:** Presiona LWR + RSE + la tecla en fila 2, columna 6 izquierda para entrar al modo gaming.
+- **Fila 1:** Perfiles Bluetooth 1-5. `BTCLR` limpia el perfil activo.
+- **GAME:** Toggle para entrar/salir del modo gaming (fila 2, columna 6 izquierda).
 
 ### Gaming (Stardew Valley)
 ```
@@ -55,8 +62,10 @@
 //                    | ALT |     | SPC |        | ENT | tog | RSE |
 ```
 
+Layout QWERTY optimizado para Stardew Valley.
+
 **Controles izquierda (movimiento + acciones):**
-- **WASD** — Movimiento
+- **WASD** �� Movimiento
 - **Shift** — Correr
 - **E** — Abrir menú/inventario
 - **C** — Usar herramienta
@@ -70,25 +79,38 @@
 - **Y** — Emotes
 - **ESC** — Menú/Salir
 
-**Salir del modo gaming:** Presiona `tog` en el thumb derecho (posición central).
+**Activar:** LWR + RSE + GAME (desde capa Adjust)
+**Salir:** Presiona `tog` en el thumb derecho (posición central)
 
 ## Display
 
-Usa [zmk-nice-oled](https://github.com/mctechnology17/zmk-nice-oled) para personalizar los nice!view displays. ZMK pineado a `v0.3.0` para compatibilidad.
+Usa [zmk-nice-oled](https://github.com/mctechnology17/zmk-nice-oled) para personalizar los nice!view displays.
 
-**Widgets habilitados:**
-- Bongo Cat — gato que escribe al tipear
-- Batería — indicador de nivel
-- WPM — palabras por minuto
-- Layer Status — nombre de la capa activa
+> **Nota:** ZMK está pineado a `v0.3.0` para compatibilidad con este módulo. El workflow de GitHub Actions también usa `v0.3.0`.
 
-**Shields:**
-- Izquierda (central): `nice_oled` — widgets principales
-- Derecha (peripheral): `nice_epaper` — animaciones
+**Shields:** Ambas mitades usan `nice_view_adapter nice_epaper`.
+
+**Widgets disponibles:** Bongo Cat, batería, WPM, layer status, y animaciones en el peripheral.
+
+## Bluetooth
+
+Soporta hasta 5 dispositivos emparejados. Selecciona perfiles desde la capa **Adjust** (LWR + RSE):
+
+| Tecla | Acción |
+|-------|--------|
+| BTCLR | Limpia el perfil BT activo |
+| BT1-BT5 | Selecciona perfil de conexión |
+
+**Emparejar nuevo dispositivo:**
+1. Selecciona un perfil vacío (BT1-BT5)
+2. El teclado entra en modo pairing automáticamente
+3. Busca "Corne" desde tu dispositivo
 
 ## Flash
 
-1. Descarga los archivos `.uf2` de GitHub Actions
-2. Conecta cada mitad por USB mientras presionas el botón de reset (entra en modo bootloader)
-3. Copia el `.uf2` correspondiente (`corne_left` o `corne_right`) al dispositivo
+1. Descarga el artifact `firmware` desde [GitHub Actions](../../actions)
+2. Conecta cada mitad por USB mientras presionas el botón de reset (doble click) para entrar en modo bootloader
+3. Copia el `.uf2` correspondiente (`corne_left` o `corne_right`) al dispositivo que aparece
 4. Repite para la otra mitad
+
+> **Tip:** Si el teclado no responde después del flash, flashea también el `settings_reset.uf2` en ambas mitades y luego vuelve a flashear el firmware normal.

@@ -55,9 +55,45 @@
                         bindings = <
 &kp TAB    &kp EXCLAMATION  &kp AT          &kp HASH          &kp DOLLAR            &kp PERCENT          &kp CARET      &kp AMPERSAND          &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
 &kp LSHFT  &kp QUESTION     &kp MINUS       &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp COLON            &kp SEMICOLON  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS              &kp EQUAL              &kp GRAVE
-&kp LCTRL  &kp TILDE        &kp UNDERSCORE  &kp LESS_THAN     &kp LEFT_BRACE        &kp DOUBLE_QUOTES    &kp SQT        &kp RIGHT_BRACE        &kp GREATER_THAN   &kp PIPE              &kp SLASH              &kp LG(BACKSLASH)
+&kp LCTRL  &kp TILDE        &kp UNDERSCORE  &kp LESS_THAN     &kp LEFT_BRACE        &kp DOUBLE_QUOTES    &kp SQT        &kp RIGHT_BRACE        &kp GREATER_THAN   &kp PIPE              &kp SLASH              &kp BACKSLASH
                                             &kp LGUI          &trans                &kp SPACE            &kp ENTER      &trans                 &kp RALT
             >;
         };
+
+                adjust {
+// -----------------------------------------------------------------------------------------
+// | BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
+// |       |      |      |      |      | GAME |        |     |     |     |     |     |      |
+// |       |      |      |      |      |      |        |     |     |     |     |     |      |
+//                       |      |      |      |        |     |     |     |
+                        bindings = <
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans         &trans         &trans         &trans         &tog 4          &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans         &trans         &trans         &trans         &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                         &trans         &trans         &trans          &trans  &trans  &trans
+            >;
+        };
+
+                gaming {
+// -----------------------------------------------------------------------------------------
+// | TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
+// | SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
+// | CTRL |  Z  |  X  |  C  |  V  |  B  |        |  M  |  Y  | UP  |     |     |      |
+//                    | ALT |     | SPC |        | ENT | tog | RSE |
+                        bindings = <
+&kp TAB    &kp Q  &kp W  &kp E     &kp R   &kp T        &kp N1     &kp N2   &kp N3  &kp N4  &kp N5  &kp ESC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp N6     &kp N7   &kp N8  &kp N9  &kp N0  &kp DEL
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V   &kp B        &kp M      &kp Y    &kp UP  &trans  &trans  &trans
+                          &kp LALT  &trans  &kp SPACE    &kp ENTER  &tog 4   &mo 2
+            >;
+        };
     };
+
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+                tri_layer {
+                        if-layers = <1 2>;
+                        then-layer = <3>;
+                };
+        };
 };

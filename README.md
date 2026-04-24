@@ -74,9 +74,17 @@
 
 ## Display
 
-Usa el status screen built-in de ZMK con `CONFIG_ZMK_DISPLAY=y` para los nice!view displays.
+Usa [zmk-nice-oled](https://github.com/mctechnology17/zmk-nice-oled) para personalizar los nice!view displays. ZMK pineado a `v0.3.0` para compatibilidad.
 
-Muestra: perfil BT activo, nivel de batería, y capa activa.
+**Widgets habilitados:**
+- Bongo Cat — gato que escribe al tipear
+- Batería — indicador de nivel
+- WPM — palabras por minuto
+- Layer Status — nombre de la capa activa
+
+**Shields:**
+- Izquierda (central): `nice_oled` — widgets principales
+- Derecha (peripheral): `nice_epaper` — animaciones
 
 ## Flash
 

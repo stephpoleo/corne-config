@@ -15,14 +15,25 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 
 ## Capas
 
+| # | Capa | Activacion |
+|---|------|-----------|
+| 0 | Base (Dvorak) | Default |
+| 1 | Lower (Nums + Fn) | Hold LWR |
+| 2 | Raise (Simbolos) | Hold RSE |
+| 3 | Adjust (BT + toggles) | LWR + RSE |
+| 4 | Gaming (Stardew) | Toggle desde Adjust |
+| 5 | Espanol (acentos) | Hold RALT o toggle desde Adjust |
+
 ### Base (Dvorak)
 
 ```
 | TAB       | ' " | ,   | .   |  P  |  Y  |         |  F  |  G  |  C  |  R  |  L  | BKSP |
 | LSHFT     |  A  |  O  |  E  |  U  |  I  |         |  D  |  H  |  T  |  N  |  S  |  DEL |
 | LCTRL     | : ; |  Q  |  J  |  K  |  X  |         |  B  |  M  |  W  |  V  |  Z  | ESC  |
-                    | CMD | LWR | SPC |         | ENT | RSE | ALT |
+                    | CMD | LWR | SPC |         | ENT | RSE | ESP/ALT |
 ```
+
+- **ESP/ALT (thumb derecho):** Tap = ALT, Hold = capa Espanol
 
 ### Lower (Numeros + Fn + Navegacion)
 
@@ -33,20 +44,37 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
                    | CMD |     | SPC |            | ENT |     | ALT |
 ```
 
-### Raise (Simbolos)
+### Raise (Simbolos — optimizado para Python/SQL)
 
 ```
-| TAB |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  (  |  )  | BKSP |
-| SHF |  ?  |  -  |  [  |  (  |  :  |        |  ;  |  )  |  ]  |  +  |  =  |  `   |
-| CTRL|  ~  |  _  |  <  |  {  |  "  |        |  '  |  }  |  >  |  |  |  /  |  \   |
-               | CMD |     | SPC |        | ENT |     | ALT |
+| TAB  |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  ?  |  +  | BKSP |
+| SHF  |  :  |  (  |  )  |  [  |  ]  |        |  ;  |  _  |  =  |  -  |  /  |  `   |
+| CTRL |     |  {  |  }  |  <  |  >  |        |  ~  |  "  |  '  |  |  |  \  |      |
+                   | CMD |     | SPC |        | ENT |     | ALT |
 ```
+
+**Filosofia:** Mano izquierda = pares de brackets, mano derecha = simbolos sueltos.
+
+**Home row izquierda — Pares (mas usados):**
+- `:` (ring) — Python defs, dicts, slices
+- `(` `)` (middle, index) — roll natural para `()`, lo mas comun en Python/SQL
+- `[` `]` (index-stretch, pinky-stretch) — lists, indexing
+
+**Home row derecha — Simbolos sueltos:**
+- `_` (index) — snake_case, SQL columns
+- `=` (middle) — asignacion, comparacion
+- `-` (ring) — sustraccion, kwargs
+- `/` (pinky) — division, paths
+
+**Bottom izquierda — Pares secundarios:**
+- `{` `}` — dicts, f-strings, sets
+- `<` `>` — comparacion, type hints
 
 ### Adjust (LWR + RSE — Tri-layer)
 
 ```
 | BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
-|       |      |      |      |      | GAME |        |     |     |     |     |     |      |
+|       |      |      |      | ESP  | GAME |        |     |     |     |     |     |      |
 |       |      |      |      |      |      |        |     |     |     |     |     |      |
                       |      |      |      |        |     |     |     |
 ```
@@ -56,6 +84,7 @@ Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 - **BT1-BT5:** Seleccionar perfil Bluetooth
 - **BTCLR:** Limpiar el perfil Bluetooth actual
 - **GAME:** Toggle para entrar al modo gaming (fila 2, columna 6 izquierda)
+- **ESP:** Toggle para capa Espanol (fila 2, columna 5 izquierda)
 
 ### Gaming (Stardew Valley)
 
@@ -85,6 +114,28 @@ Layout QWERTY optimizado para Stardew Valley.
 
 **Activar:** LWR + RSE + GAME (desde capa Adjust)
 **Salir:** Presiona `tog` en el thumb derecho (posicion central)
+
+### Espanol (acentos)
+
+```
+|      |     |     |     |     |     |         |     |     |     |     |     |      |
+|      |  á  |  ó  |  é  |  ú  |  í  |         |     |     |     |  ñ  |     |      |
+|      |  ¡  |  ¿  |     |  ü  |     |         |     |     |     |     |     |      |
+                   |     |     |     |         |     |     | ### |
+```
+
+Caracteres espanoles via macros de Alt codes (Windows). Funciona en cualquier layout de Windows sin instalar software adicional.
+
+**Activar:**
+- **Hold RALT** (thumb derecho) — momentaneo, para uso rapido
+- **LWR + RSE + ESP** (desde Adjust) — toggle, para escritura prolongada en espanol
+
+**Posiciones:** Las vocales acentuadas estan en las mismas posiciones que en Dvorak (A, O, E, U, I en home row izquierda), asi que la memoria muscular es natural.
+
+- `ñ` en posicion de N (home row derecha)
+- `ü` en posicion de K (debajo de U)
+- `¡` en posicion de `: ;` (debajo de A)
+- `¿` en posicion de Q (debajo de O)
 
 ## Display
 

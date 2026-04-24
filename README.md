@@ -1,116 +1,150 @@
-# Corne Keyboard Config (Dvorak)
+# Corne Keyboard (ZMK)
+
+Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays.
+
+## Hardware
+
+- **MCU:** nice!nano v2
+- **Displays:** nice!view (ambas mitades)
+- **Layout:** Corne (3x6 + 3 thumb keys)
+- **Firmware:** [ZMK](https://zmk.dev) pinned to `v0.3.0`
 
 ![image](https://github.com/stephpoleo/corne-config/assets/25173418/eaa343cd-3191-4a1f-a5fb-aa671bf53617)
 ![image](https://github.com/stephpoleo/corne-config/assets/25173418/d7e0a93b-f150-4452-8161-6decb604fab7)
 ![image](https://github.com/stephpoleo/corne-config/assets/25173418/03671c31-aba4-482f-a0b6-4bf72c459047)
 
-## Hardware
-
-- **Board:** nice!nano v2
-- **Display:** nice!view (e-paper)
-- **Firmware:** [ZMK](https://zmk.dev) pinned to `v0.3.0`
-
-## Layers
+## Capas
 
 ### Base (Dvorak)
+
 ```
-// -----------------------------------------------------------------------------------------
-// | TAB       | ' " | ,   | .   |  P  |  Y  |         | F   |  G   |  C  |  R  |  L  | BKSP |
-// | CAPS      |  A  |  O  |  E  |  U  |  I  |         |  D  |  H   |  T  |  N  |  S  |  DEL |
-// | LCTRL     | : ; |  Q  |  J  |  K  |  X  |         |  B  |  M   |  W  |  V  |  Z  | ESC  |
-//                     | COMMAND | LWR | SPC |         | ENT | RSE  | ALT |
+| TAB       | ' " | ,   | .   |  P  |  Y  |         |  F  |  G  |  C  |  R  |  L  | BKSP |
+| LSHFT     |  A  |  O  |  E  |  U  |  I  |         |  D  |  H  |  T  |  N  |  S  |  DEL |
+| LCTRL     | : ; |  Q  |  J  |  K  |  X  |         |  B  |  M  |  W  |  V  |  Z  | ESC  |
+                    | CMD | LWR | SPC |         | ENT | RSE | ALT |
 ```
 
-### Lower (Numbers + F-keys)
+### Lower (Numeros + Fn + Navegacion)
+
 ```
-// -----------------------------------------------------------------------------------------
-// | TAB  |   1  |   2  |   3  |  4  |  5  |            |  6  |  7   |  8  |  9  |  0  | BSPC  |
-// | SHF  |  F1  |  F2  |  F3  | F4  | F5  |            | LFT | DWN  | UP  | RGT |     |       |
-// | CTRL |  F6  |  F7  |  F8  | F9  |     |            |     |  F10 | F11 | F12 |     |       |
-//                   | COMMAND |     | SPC |            | ENT |      | ALT |
+| TAB  |  1  |  2  |  3  |  4  |  5  |            |  6  |  7  |  8  |  9  |  0  | BSPC |
+| SHF  | F1  | F2  | F3  | F4  | F5  |            | LFT | DWN |  UP | RGT |     |      |
+| CTRL | F6  | F7  | F8  | F9  |     |            |     | F10 | F11 | F12 |     |      |
+                   | CMD |     | SPC |            | ENT |     | ALT |
 ```
 
-### Raise (Symbols)
+### Raise (Simbolos)
+
 ```
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | SHF  |  ?  |  -  |  [  |  (  |  :  |        |  ;  |  )  |  ]  |  +  |  =  |  `   |
-// | CTRL |  ~  |  _  |  <  |  {  |  "  |        |  '  |  }  |  >  |  |  |  /  |  \   |
-//                | COMMAND |     | SPC |        | ENT |     | ALT |
+| TAB |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  (  |  )  | BKSP |
+| SHF |  ?  |  -  |  [  |  (  |  :  |        |  ;  |  )  |  ]  |  +  |  =  |  `   |
+| CTRL|  ~  |  _  |  <  |  {  |  "  |        |  '  |  }  |  >  |  |  |  /  |  \   |
+               | CMD |     | SPC |        | ENT |     | ALT |
 ```
 
 ### Adjust (LWR + RSE — Tri-layer)
+
 ```
-// -----------------------------------------------------------------------------------------
-// | BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
-// |       |      |      |      |      | GAME |        |     |     |     |     |     |      |
-// |       |      |      |      |      |      |        |     |     |     |     |     |      |
-//                       |      |      |      |        |     |     |     |
+| BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
+|       |      |      |      |      | GAME |        |     |     |     |     |     |      |
+|       |      |      |      |      |      |        |     |     |     |     |     |      |
+                      |      |      |      |        |     |     |     |
 ```
 
 Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 
-- **Fila 1:** Perfiles Bluetooth 1-5. `BTCLR` limpia el perfil activo.
-- **GAME:** Toggle para entrar/salir del modo gaming (fila 2, columna 6 izquierda).
+- **BT1-BT5:** Seleccionar perfil Bluetooth
+- **BTCLR:** Limpiar el perfil Bluetooth actual
+- **GAME:** Toggle para entrar al modo gaming (fila 2, columna 6 izquierda)
 
 ### Gaming (Stardew Valley)
+
 ```
-// -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
-// | SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
-// | CTRL |  Z  |  X  |  C  |  V  |  B  |        |  M  |  Y  | UP  |     |     |      |
-//                    | ALT |     | SPC |        | ENT | tog | RSE |
+| TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
+| SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
+| CTRL |  Z  |  X  |  C  |  V  |  B  |        |  M  |  Y  | UP  |     |     |      |
+                   | ALT |     | SPC |        | ENT | tog | RSE |
 ```
 
 Layout QWERTY optimizado para Stardew Valley.
 
 **Controles izquierda (movimiento + acciones):**
-- **WASD** �� Movimiento
+- **WASD** — Movimiento
 - **Shift** — Correr
-- **E** — Abrir menú/inventario
+- **E** — Abrir menu/inventario
 - **C** — Usar herramienta
 - **X** — Interactuar/Comer
 - **F** — Diario
 - **Tab** — Cambiar toolbar
 
-**Controles derecha (inventario + navegación):**
-- **1-0** — Slots de inventario (selección directa)
+**Controles derecha (inventario + navegacion):**
+- **1-0** — Slots de inventario (seleccion directa)
 - **M** — Mapa
 - **Y** — Emotes
-- **ESC** — Menú/Salir
+- **ESC** — Menu/Salir
 
 **Activar:** LWR + RSE + GAME (desde capa Adjust)
-**Salir:** Presiona `tog` en el thumb derecho (posición central)
+**Salir:** Presiona `tog` en el thumb derecho (posicion central)
 
 ## Display
 
 Usa [zmk-nice-oled](https://github.com/mctechnology17/zmk-nice-oled) para personalizar los nice!view displays.
 
-> **Nota:** ZMK está pineado a `v0.3.0` para compatibilidad con este módulo. El workflow de GitHub Actions también usa `v0.3.0`.
+> **Nota:** ZMK esta pineado a `v0.3.0` para compatibilidad con este modulo. El workflow de GitHub Actions tambien usa `v0.3.0`.
 
 **Shields:** Ambas mitades usan `nice_view_adapter nice_epaper`.
 
-**Widgets disponibles:** Bongo Cat, batería, WPM, layer status, y animaciones en el peripheral.
+**Widgets disponibles:** Bongo Cat, bateria, WPM, layer status, y animaciones en el peripheral.
 
-## Bluetooth
+## Bluetooth - Conectar dispositivos
 
 Soporta hasta 5 dispositivos emparejados. Selecciona perfiles desde la capa **Adjust** (LWR + RSE):
 
-| Tecla | Acción |
+| Tecla | Accion |
 |-------|--------|
 | BTCLR | Limpia el perfil BT activo |
-| BT1-BT5 | Selecciona perfil de conexión |
+| BT1-BT5 | Selecciona perfil de conexion |
 
-**Emparejar nuevo dispositivo:**
-1. Selecciona un perfil vacío (BT1-BT5)
-2. El teclado entra en modo pairing automáticamente
-3. Busca "Corne" desde tu dispositivo
+### Emparejar nuevo dispositivo
 
-## Flash
+1. Presiona **LWR + RSE** simultaneamente para activar la capa Adjust
+2. Selecciona un perfil vacio (BT1-BT5)
+3. El teclado entra en modo pairing automaticamente
+4. Busca "Corne" desde tu dispositivo
 
-1. Descarga el artifact `firmware` desde [GitHub Actions](../../actions)
-2. Conecta cada mitad por USB mientras presionas el botón de reset (doble click) para entrar en modo bootloader
-3. Copia el `.uf2` correspondiente (`corne_left` o `corne_right`) al dispositivo que aparece
-4. Repite para la otra mitad
+### Cambiar entre dispositivos
 
-> **Tip:** Si el teclado no responde después del flash, flashea también el `settings_reset.uf2` en ambas mitades y luego vuelve a flashear el firmware normal.
+- **LWR + RSE + BT1** = Dispositivo 1
+- **LWR + RSE + BT2** = Dispositivo 2
+- etc.
+
+### Solucionar problemas de conexion
+
+Si el teclado no conecta:
+1. Selecciona el perfil con problemas (LWR + RSE + BTx)
+2. Presiona **BTCLR** para limpiar ese perfil
+3. Vuelve a emparejar desde cero
+4. Si persiste, flashea el firmware `settings_reset` en ambas mitades y luego reflashea el firmware normal
+
+## Flash del firmware
+
+### GitHub Actions (recomendado)
+
+1. Haz push de tus cambios a GitHub
+2. Ve a la pestana [Actions](../../actions)
+3. Descarga el artifact `firmware` que contiene los archivos `.uf2`
+
+### Flashear los archivos .uf2
+
+1. Conecta la mitad por USB
+2. Haz doble click en el boton **reset** del nice!nano (entra en modo bootloader)
+3. Aparecera una unidad USB llamada **NICENANO**
+4. Copia el `.uf2` correspondiente (`corne_left` o `corne_right`) a esa unidad
+5. Repite para la otra mitad
+
+### Reset de fabrica
+
+Si tienes problemas persistentes de Bluetooth:
+
+1. Flashea `settings_reset` en **ambas** mitades
+2. Luego flashea los firmware normales (`corne_left` y `corne_right`) de nuevo

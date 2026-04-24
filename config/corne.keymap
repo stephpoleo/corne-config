@@ -14,29 +14,37 @@
 };
 
 / {
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+                adjust_layer {
+                        if-layers = <1 2>;
+                        then-layer = <3>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 base {
 // -----------------------------------------------------------------------------------------
 // | TAB       | ' " | ,   | .   |  P  |  Y  |         | F   |  G   |  C  |  R  |  L  | BKSP |
-// | CAPS      |  A  |  O  |  E  |  U  |  I  |         |  D  |  H   |  T  |  N  |  S  |  DEL |
-// | LCTRL     | : ; |  q  | J   | K   |  X  |         |  B  |  M   |  W  |  V  |  Z  | ESC  |
+// | LSHFT     |  A  |  O  |  E  |  U  |  I  |         |  D  |  H   |  T  |  N  |  S  |  DEL |
+// | LCTRL     | : ; |  Q  |  J  |  K  |  X  |         |  B  |  M   |  W  |  V  |  Z  | ESC  |
 //                     | COMMAND | LWR | SPC |         | ENT | RSE  | ALT |
 
                         bindings = <
 &kp TAB    &mt SQT DOUBLE_QUOTES  &kp COMMA  &kp DOT           &kp P  &kp Y        &kp F      &kp G  &kp C     &kp R  &kp L  &kp BSPC
-&kp CAPS   &kp A                  &kp O      &kp E             &kp U  &kp I        &kp D      &kp H  &kp T     &kp N  &kp S  &kp DEL
+&kp LSHFT  &kp A                  &kp O      &kp E             &kp U  &kp I        &kp D      &kp H  &kp T     &kp N  &kp S  &kp DEL
 &kp LCTRL  &mt COLON SEMICOLON    &kp Q      &kp J             &kp K  &kp X        &kp B      &kp M  &kp W     &kp V  &kp Z  &kp ESC
-                                             &kp LEFT_COMMAND  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp LALT
+                                              &kp LEFT_COMMAND  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp LALT
             >;
         };
-                
+
                 lower {
 // -----------------------------------------------------------------------------------------
 // | TAB  |   1  |   2  |   3  |  4  |  5  |            |  6  |  7   |  8  |  9  |  0  | BSPC  |
 // | SHF  |  F1  |  F2  |  F3  | F4  | F5  |            | LFT | DWN  | UP  | RGT |     |       |
-// | CTRL |  F6  |  F7  |  F8  | F9  |     |            |  *  |  0   | / \ |  7  |     |       |
+// | CTRL |  F6  |  F7  |  F8  | F9  |     |            |     | F10  | F11 | F12 |     |       |
 //                   | COMMAND |     | SPC |            | ENT |      | ALT |
                         bindings = <
 &kp TAB    &kp N1  &kp N2  &kp N3    &kp N4  &kp N5       &kp N6     &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
@@ -88,12 +96,4 @@
             >;
         };
     };
-
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
-                tri_layer {
-                        if-layers = <1 2>;
-                        then-layer = <3>;
-                };
-        };
 };

@@ -7,6 +7,11 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 - **MCU:** nice!nano v2
 - **Displays:** nice!view (ambas mitades)
 - **Layout:** Corne (3x6 + 3 thumb keys)
+- **Firmware:** [ZMK](https://zmk.dev) pinned to `v0.3.0`
+
+![image](https://github.com/stephpoleo/corne-config/assets/25173418/eaa343cd-3191-4a1f-a5fb-aa671bf53617)
+![image](https://github.com/stephpoleo/corne-config/assets/25173418/d7e0a93b-f150-4452-8161-6decb604fab7)
+![image](https://github.com/stephpoleo/corne-config/assets/25173418/03671c31-aba4-482f-a0b6-4bf72c459047)
 
 ## Capas
 
@@ -37,77 +42,109 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
                | CMD |     | SPC |        | ENT |     | ALT |
 ```
 
-### Adjust (Bluetooth) - Se activa presionando LWR + RSE al mismo tiempo
+### Adjust (LWR + RSE — Tri-layer)
 
 ```
-|     | BT1 | BT2 | BT3 | BT4 | BT5 |        |     |     |     |     |     | BTCLR |
-|     |     |     |     |     |     |        |     |     |     |     |     |       |
-|     |     |     |     |     |     |        |     |     |     |     |     |       |
-               |     |     |     |        |     |     |     |
+| BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
+|       |      |      |      |      | GAME |        |     |     |     |     |     |      |
+|       |      |      |      |      |      |        |     |     |     |     |     |      |
+                      |      |      |      |        |     |     |     |
 ```
 
-- **BT1-BT5:** Seleccionar perfil Bluetooth (ej. BT1 = computadora, BT2 = Meta Quest 2)
-- **BTCLR:** Limpiar el perfil Bluetooth actual (usar si hay problemas de conexion)
+Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
+
+- **BT1-BT5:** Seleccionar perfil Bluetooth
+- **BTCLR:** Limpiar el perfil Bluetooth actual
+- **GAME:** Toggle para entrar al modo gaming (fila 2, columna 6 izquierda)
+
+### Gaming (Stardew Valley)
+
+```
+| TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
+| SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
+| CTRL |  Z  |  X  |  C  |  V  |  B  |        |  M  |  Y  | UP  |     |     |      |
+                   | ALT |     | SPC |        | ENT | tog | RSE |
+```
+
+Layout QWERTY optimizado para Stardew Valley.
+
+**Controles izquierda (movimiento + acciones):**
+- **WASD** — Movimiento
+- **Shift** — Correr
+- **E** — Abrir menu/inventario
+- **C** — Usar herramienta
+- **X** — Interactuar/Comer
+- **F** — Diario
+- **Tab** — Cambiar toolbar
+
+**Controles derecha (inventario + navegacion):**
+- **1-0** — Slots de inventario (seleccion directa)
+- **M** — Mapa
+- **Y** — Emotes
+- **ESC** — Menu/Salir
+
+**Activar:** LWR + RSE + GAME (desde capa Adjust)
+**Salir:** Presiona `tog` en el thumb derecho (posicion central)
+
+## Display
+
+Usa [zmk-nice-oled](https://github.com/mctechnology17/zmk-nice-oled) para personalizar los nice!view displays.
+
+> **Nota:** ZMK esta pineado a `v0.3.0` para compatibilidad con este modulo. El workflow de GitHub Actions tambien usa `v0.3.0`.
+
+**Shields:** Ambas mitades usan `nice_view_adapter nice_epaper`.
+
+**Widgets disponibles:** Bongo Cat, bateria, WPM, layer status, y animaciones en el peripheral.
 
 ## Bluetooth - Conectar dispositivos
 
-### Emparejar con la computadora (perfil 1)
+Soporta hasta 5 dispositivos emparejados. Selecciona perfiles desde la capa **Adjust** (LWR + RSE):
+
+| Tecla | Accion |
+|-------|--------|
+| BTCLR | Limpia el perfil BT activo |
+| BT1-BT5 | Selecciona perfil de conexion |
+
+### Emparejar nuevo dispositivo
 
 1. Presiona **LWR + RSE** simultaneamente para activar la capa Adjust
-2. Presiona la tecla en la posicion de **BT1** (donde esta el `1` en la capa base)
-3. En tu computadora, ve a configuracion Bluetooth y busca "Corne"
-4. Empareja el dispositivo
-
-### Emparejar con Meta Quest 2 (perfil 2)
-
-1. Presiona **LWR + RSE** para activar la capa Adjust
-2. Presiona **BT2** (donde esta el `2`) para cambiar al perfil 2
-3. En las Meta Quest 2, ve a **Settings > Devices > Bluetooth**
-4. Activa Bluetooth y busca "Corne"
-5. Empareja el dispositivo
+2. Selecciona un perfil vacio (BT1-BT5)
+3. El teclado entra en modo pairing automaticamente
+4. Busca "Corne" desde tu dispositivo
 
 ### Cambiar entre dispositivos
 
-- **LWR + RSE + BT1** = Computadora
-- **LWR + RSE + BT2** = Meta Quest 2
+- **LWR + RSE + BT1** = Dispositivo 1
+- **LWR + RSE + BT2** = Dispositivo 2
+- etc.
 
 ### Solucionar problemas de conexion
 
 Si el teclado no conecta:
 1. Selecciona el perfil con problemas (LWR + RSE + BTx)
-2. Presiona **BTCLR** (LWR + RSE + tecla superior derecha) para limpiar ese perfil
+2. Presiona **BTCLR** para limpiar ese perfil
 3. Vuelve a emparejar desde cero
 4. Si persiste, flashea el firmware `settings_reset` en ambas mitades y luego reflashea el firmware normal
 
 ## Flash del firmware
 
-### Opcion 1: GitHub Actions (recomendado)
+### GitHub Actions (recomendado)
 
 1. Haz push de tus cambios a GitHub
-2. Ve a la pestana **Actions** en tu repositorio
-3. El workflow `build.yml` compilara el firmware automaticamente
-4. Descarga el artifact `firmware` que contiene los archivos `.uf2`
-5. Dentro encontraras:
-   - `corne_left-nice_nano_v2-zmk.uf2`
-   - `corne_right-nice_nano_v2-zmk.uf2`
-   - `settings_reset-nice_nano_v2-zmk.uf2`
+2. Ve a la pestana [Actions](../../actions)
+3. Descarga el artifact `firmware` que contiene los archivos `.uf2`
 
-### Opcion 2: Flashear los archivos .uf2
+### Flashear los archivos .uf2
 
-1. Conecta la mitad **izquierda** del teclado por USB
+1. Conecta la mitad por USB
 2. Haz doble click en el boton **reset** del nice!nano (entra en modo bootloader)
 3. Aparecera una unidad USB llamada **NICENANO**
-4. Copia el archivo `corne_left-nice_nano_v2-zmk.uf2` a esa unidad
-5. El teclado se reiniciara automaticamente
-6. Repite los pasos 1-5 con la mitad **derecha** usando `corne_right-nice_nano_v2-zmk.uf2`
+4. Copia el `.uf2` correspondiente (`corne_left` o `corne_right`) a esa unidad
+5. Repite para la otra mitad
 
 ### Reset de fabrica
 
 Si tienes problemas persistentes de Bluetooth:
 
-1. Flashea `settings_reset-nice_nano_v2-zmk.uf2` en **ambas** mitades
+1. Flashea `settings_reset` en **ambas** mitades
 2. Luego flashea los firmware normales (`corne_left` y `corne_right`) de nuevo
-
-![image](https://github.com/stephpoleo/corne-config/assets/25173418/eaa343cd-3191-4a1f-a5fb-aa671bf53617)
-![image](https://github.com/stephpoleo/corne-config/assets/25173418/d7e0a93b-f150-4452-8161-6decb604fab7)
-![image](https://github.com/stephpoleo/corne-config/assets/25173418/03671c31-aba4-482f-a0b6-4bf72c459047)

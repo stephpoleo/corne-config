@@ -14,6 +14,109 @@
 };
 
 / {
+        macros {
+                // Spanish characters via Windows Alt codes
+                macro_a_acute: macro_a_acute {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N5>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_e_acute: macro_e_acute {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_i_acute: macro_i_acute {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N7>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_o_acute: macro_o_acute {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N3>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_u_acute: macro_u_acute {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N5 &kp KP_N0>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_ntilde: macro_ntilde {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N1>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_u_diaeresis: macro_u_diaeresis {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N5 &kp KP_N2>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_inv_question: macro_inv_question {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N1>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+                macro_inv_excl: macro_inv_excl {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings
+                                = <&macro_press &kp LALT>
+                                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N6 &kp KP_N1>
+                                , <&macro_release &kp LALT>
+                                ;
+                };
+        };
+
         conditional_layers {
                 compatible = "zmk,conditional-layers";
                 adjust_layer {
@@ -30,13 +133,13 @@
 // | TAB       | ' " | ,   | .   |  P  |  Y  |         | F   |  G   |  C  |  R  |  L  | BKSP |
 // | LSHFT     |  A  |  O  |  E  |  U  |  I  |         |  D  |  H   |  T  |  N  |  S  |  DEL |
 // | LCTRL     | : ; |  Q  |  J  |  K  |  X  |         |  B  |  M   |  W  |  V  |  Z  | ESC  |
-//                     | COMMAND | LWR | SPC |         | ENT | RSE  | ALT |
+//                     | COMMAND | LWR | SPC |         | ENT | RSE  | ESP/ALT |
 
                         bindings = <
 &kp TAB    &mt SQT DOUBLE_QUOTES  &kp COMMA  &kp DOT           &kp P  &kp Y        &kp F      &kp G  &kp C     &kp R  &kp L  &kp BSPC
 &kp LSHFT  &kp A                  &kp O      &kp E             &kp U  &kp I        &kp D      &kp H  &kp T     &kp N  &kp S  &kp DEL
 &kp LCTRL  &mt COLON SEMICOLON    &kp Q      &kp J             &kp K  &kp X        &kp B      &kp M  &kp W     &kp V  &kp Z  &kp ESC
-                                              &kp LEFT_COMMAND  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp LALT
+                                              &kp LEFT_COMMAND  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &lt 5 LALT
             >;
         };
 
@@ -56,27 +159,27 @@
 
                 raise {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | SHF  |  ?  |  -  |  [  |  (  |  :  |        |  ;  |  )  |  ]  |  +  |  =  |  `   |
-// | CTRL |  ~  |  _  |  <  |  {  |  "  |        |  '  |  }  |  >  |  |  |  /  |  \   |
+// |  TAB |  !  |  @  |  #  |  $  |  %  |        |  ^  |  &  |  *  |  ?  |  +  | BKSP |
+// | SHF  |  :  |  (  |  )  |  [  |  ]  |        |  ;  |  _  |  =  |  -  |  /  |  `   |
+// | CTRL |     |  {  |  }  |  <  |  >  |        |  ~  |  "  |  '  |  |  |  \  |      |
 //                | COMMAND |     | SPC |        | ENT |     | ALT |
                         bindings = <
-&kp TAB    &kp EXCLAMATION  &kp AT          &kp HASH          &kp DOLLAR            &kp PERCENT          &kp CARET      &kp AMPERSAND          &kp STAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
-&kp LSHFT  &kp QUESTION     &kp MINUS       &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp COLON            &kp SEMICOLON  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PLUS              &kp EQUAL              &kp GRAVE
-&kp LCTRL  &kp TILDE        &kp UNDERSCORE  &kp LESS_THAN     &kp LEFT_BRACE        &kp DOUBLE_QUOTES    &kp SQT        &kp RIGHT_BRACE        &kp GREATER_THAN   &kp PIPE              &kp SLASH              &kp BACKSLASH
-                                            &kp LGUI          &trans                &kp SPACE            &kp ENTER      &trans                 &kp RALT
+&kp TAB    &kp EXCLAMATION  &kp AT                &kp HASH          &kp DOLLAR      &kp PERCENT          &kp CARET      &kp AMPERSAND      &kp STAR   &kp QUESTION  &kp PLUS       &kp BSPC
+&kp LSHFT  &kp COLON        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp SEMICOLON  &kp UNDERSCORE     &kp EQUAL  &kp MINUS     &kp SLASH      &kp GRAVE
+&kp LCTRL  &trans           &kp LEFT_BRACE        &kp RIGHT_BRACE   &kp LESS_THAN   &kp GREATER_THAN     &kp TILDE      &kp DOUBLE_QUOTES  &kp SQT    &kp PIPE      &kp BACKSLASH  &trans
+                                                   &kp LGUI          &trans          &kp SPACE            &kp ENTER      &trans             &kp RALT
             >;
         };
 
                 adjust {
 // -----------------------------------------------------------------------------------------
 // | BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
-// |       |      |      |      |      | GAME |        |     |     |     |     |     |      |
+// |       |      |      |      | ESP  | GAME |        |     |     |     |     |     |      |
 // |       |      |      |      |      |      |        |     |     |     |     |     |      |
 //                       |      |      |      |        |     |     |     |
                         bindings = <
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &trans         &trans         &trans         &trans         &tog 4          &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans         &trans         &trans         &tog 5         &tog 4          &trans  &trans  &trans  &trans  &trans  &trans
 &trans      &trans         &trans         &trans         &trans         &trans          &trans  &trans  &trans  &trans  &trans  &trans
                                          &trans         &trans         &trans          &trans  &trans  &trans
             >;
@@ -93,6 +196,20 @@
 &kp LSHFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp N6     &kp N7   &kp N8  &kp N9  &kp N0  &kp DEL
 &kp LCTRL  &kp Z  &kp X  &kp C     &kp V   &kp B        &kp M      &kp Y    &kp UP  &trans  &trans  &trans
                           &kp LALT  &trans  &kp SPACE    &kp ENTER  &tog 4   &mo 2
+            >;
+        };
+
+                espanol {
+// -----------------------------------------------------------------------------------------
+// |      |     |     |     |     |     |         |     |     |     |     |     |      |
+// |      |  á  |  ó  |  é  |  ú  |  í  |         |     |     |     |  ñ  |     |      |
+// |      |  ¡  |  ¿  |     |  ü  |     |         |     |     |     |     |     |      |
+//                    |     |     |     |         |     |     | ### |
+                        bindings = <
+&trans  &trans           &trans              &trans  &trans              &trans     &trans  &trans  &trans  &trans          &trans  &trans
+&trans  &macro_a_acute   &macro_o_acute      &macro_e_acute  &macro_u_acute  &macro_i_acute     &trans  &trans  &trans  &macro_ntilde   &trans  &trans
+&trans  &macro_inv_excl  &macro_inv_question &trans  &macro_u_diaeresis  &trans     &trans  &trans  &trans  &trans          &trans  &trans
+                                             &trans  &trans              &trans     &trans  &trans  &trans
             >;
         };
     };

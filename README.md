@@ -91,26 +91,29 @@ Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 ```
 | TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
 | SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
-| CTRL |  Z  |  X  |  C  |  V  |  B  |        |  M  |  Y  | UP  |     |     |      |
+| CTRL |  Z  |  X  |  C  |  V  |  B  |        |  C  |  X  |  M  |  Y  | UP  |      |
                    | ALT |     | SPC |        | ENT | tog | RSE |
 ```
 
 Layout QWERTY optimizado para Stardew Valley.
 
-**Controles izquierda (movimiento + acciones):**
+**Controles izquierda (movimiento):**
 - **WASD** — Movimiento
 - **Shift** — Correr
 - **E** — Abrir menu/inventario
-- **C** — Usar herramienta
-- **X** — Interactuar/Comer
 - **F** — Diario
 - **Tab** — Cambiar toolbar
+- **C / X** — Tambien disponibles aqui (duplicados) para uso ocasional
 
-**Controles derecha (inventario + navegacion):**
+**Controles derecha (acciones + inventario):**
+- **C** — Usar herramienta (indice, fila inferior — espejo de la izquierda)
+- **X** — Interactuar/Seleccionar (medio, fila inferior)
 - **1-0** — Slots de inventario (seleccion directa)
 - **M** — Mapa
 - **Y** — Emotes
 - **ESC** — Menu/Salir
+
+**Filosofia:** Mano izquierda mueve, mano derecha selecciona/actua. Las acciones `C` y `X` estan en la fila inferior derecha en posiciones espejo a las originales QWERTY, asi que la memoria muscular se traslada naturalmente.
 
 **Activar:** LWR + RSE + GAME (desde capa Adjust)
 **Salir:** Presiona `tog` en el thumb derecho (posicion central)

@@ -189,13 +189,13 @@
 // -----------------------------------------------------------------------------------------
 // | TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
 // | SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
-// | CTRL |  Z  |  X  |  C  |  V  |  B  |        |  M  |  Y  | UP  |     |     |      |
+// | CTRL |  Z  |  X  |  C  |  V  |  B  |        |  C  |  X  |  M  |  Y  | UP  |      |
 //                    | ALT |     | SPC |        | ENT | tog | RSE |
                         bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R   &kp T        &kp N1     &kp N2   &kp N3  &kp N4  &kp N5  &kp ESC
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp N6     &kp N7   &kp N8  &kp N9  &kp N0  &kp DEL
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V   &kp B        &kp M      &kp Y    &kp UP  &trans  &trans  &trans
-                          &kp LALT  &trans  &kp SPACE    &kp ENTER  &tog 4   &mo 2
+&kp TAB    &kp Q  &kp W  &kp E     &kp R   &kp T        &kp N1     &kp N2  &kp N3  &kp N4  &kp N5   &kp ESC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F   &kp G        &kp N6     &kp N7  &kp N8  &kp N9  &kp N0   &kp DEL
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V   &kp B        &kp C      &kp X   &kp M   &kp Y   &kp UP   &trans
+                          &kp LALT  &trans  &kp SPACE    &kp ENTER  &tog 4  &mo 2
             >;
         };
 

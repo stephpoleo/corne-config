@@ -23,6 +23,7 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 | 3 | Adjust (BT + toggles) | LWR + RSE |
 | 4 | Gaming (Stardew) | Toggle desde Adjust |
 | 5 | Espanol (acentos) | Hold RALT o toggle desde Adjust |
+| 6 | Menu (mouse keys) | Toggle desde Adjust o thumb derecho de Gaming |
 
 ### Base (Dvorak)
 
@@ -74,7 +75,7 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 
 ```
 | BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
-|       |      |      |      | ESP  | GAME |        |     |     |     |     |     |      |
+|       |      |      |      | ESP  | GAME |        | MNU |     |     |     |     |      |
 |       |      |      |      |      |      |        |     |     |     |     |     |      |
                       |      |      |      |        |     |     |     |
 ```
@@ -85,6 +86,7 @@ Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 - **BTCLR:** Limpiar el perfil Bluetooth actual
 - **GAME:** Toggle para entrar al modo gaming (fila 2, columna 6 izquierda)
 - **ESP:** Toggle para capa Espanol (fila 2, columna 5 izquierda)
+- **MNU:** Toggle para capa Menu (mouse keys, fila 2, columna 1 derecha)
 
 ### Gaming (Stardew Valley)
 
@@ -92,7 +94,7 @@ Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 | TAB  |  Q  |  W  |  E  |  R  |  T  |        |  1  |  2  |  3  |  4  |  5  | ESC  |
 | SHFT |  A  |  S  |  D  |  F  |  G  |        |  6  |  7  |  8  |  9  |  0  | DEL  |
 | CTRL |  Z  |  X  |  C  |  V  |  B  |        |  C  |  X  |  M  |  Y  | UP  |      |
-                   | ALT |     | SPC |        | ENT | tog | RSE |
+                   | ALT |     | SPC |        | ENT | tog | MNU |
 ```
 
 Layout QWERTY optimizado para Stardew Valley.
@@ -117,6 +119,39 @@ Layout QWERTY optimizado para Stardew Valley.
 
 **Activar:** LWR + RSE + GAME (desde capa Adjust)
 **Salir:** Presiona `tog` en el thumb derecho (posicion central)
+**Modo Menu:** El thumb derecho (`MNU`) entra a la capa Menu para navegar baules/inventario con mouse emulado (ver seccion Menu)
+
+### Menu (Mouse keys — para baules e inventario en Stardew)
+
+```
+| ESC   |     | M-Up |     |     |     |        |     |     |      |      |     |     |
+|       | M-L | M-Dn | M-R |     |     |        | LCK | RCK | SCR↑ | SCR↓ |     |     |
+|       |     |      |     |     |     |        |     |     |      |      |     |     |
+                    |     |     | LCK |        | RCK | tog | tog |
+```
+
+Stardew Valley **no soporta navegacion por teclado en menus de inventario/baules** — son mouse-only por diseno del juego. Esta capa emula un mouse desde el teclado para mover items entre la mochila y los baules sin levantar la mano.
+
+**Mano izquierda (cursor del mouse):**
+- Posiciones espejo a WASD: **W → M-Up**, **A → M-Left**, **S → M-Down**, **D → M-Right**
+
+**Mano derecha (clicks + scroll):**
+- **LCLK** (indice, home row derecha) — Click izquierdo: tomar/soltar item
+- **RCLK** (medio) — Click derecho: tomar 1 solo / contextual
+- **SCRL Up/Down** — Scroll vertical (util en menus largos)
+
+**Thumbs:**
+- **LCLK** (thumb izquierdo derecho) — click izquierdo accesible con pulgar
+- **RCLK** (thumb derecho izquierdo) — click derecho accesible con pulgar
+- **tog 6** (thumbs centro y derecho) — sale de la capa Menu
+
+**Activar:**
+- Desde capa Gaming: presiona el thumb derecho (`MNU`) — toggle
+- Desde capa Adjust: LWR + RSE + MNU (fila 2, primera columna derecha) — toggle
+
+**Filosofia:** Mismo principio que Gaming — mano izquierda mueve (el cursor), mano derecha selecciona (clicks). Al abrir un baul, toggleas a Menu, mueves items, y vuelves a togglear para seguir jugando.
+
+> **Nota:** Requiere `CONFIG_ZMK_POINTING=y` en `corne.conf` (ya activado).
 
 ### Espanol (acentos)
 

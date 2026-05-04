@@ -72,9 +72,9 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 ### Adjust (LWR + RSE — Tri-layer)
 
 ```
-| BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     |      |
-|       |      |      |      | ESP  | GAME |        | MNU |     |     |     |     |      |
-|       |      |      |      |      |      |        |     |     |     |     |     |      |
+| BTCLR | BT1  | BT2  | BT3  | BT4  | BT5  |        |     |     |     |     |     | PSCRN |
+|       |      |      |      | ESP  | GAME |        | MNU |     |     |     |     |       |
+|       |      |      |      |      |      |        |     |     |     |     |     |       |
                       |      |      |      |        |     |     |     |
 ```
 
@@ -85,6 +85,7 @@ Se activa manteniendo **LWR + RSE** al mismo tiempo (tri-layer condicional).
 - **GAME:** Toggle para entrar al modo gaming (fila 2, columna 6 izquierda)
 - **ESP:** Toggle para capa Espanol (fila 2, columna 5 izquierda)
 - **MNU:** Toggle para capa Menu (mouse keys, fila 2, columna 1 derecha)
+- **PSCRN:** Print Screen (fila 1, esquina superior derecha — posicion estandar de PrtSc)
 
 ### Gaming (Stardew Valley)
 

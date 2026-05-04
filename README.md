@@ -22,7 +22,7 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 | 2 | Raise (Simbolos) | Hold RSE |
 | 3 | Adjust (BT + toggles) | LWR + RSE |
 | 4 | Gaming (Stardew) | Toggle desde Adjust |
-| 5 | Espanol (acentos) | Hold RALT o toggle desde Adjust |
+| 5 | Espanol (acentos) | Toggle desde Adjust |
 | 6 | Menu (mouse keys) | Toggle desde Adjust o thumb derecho de Gaming |
 
 ### Base (Dvorak)
@@ -31,10 +31,8 @@ Configuracion ZMK para teclado split Corne con nice!nano v2 y nice!view displays
 | TAB       | ' " | ,   | .   |  P  |  Y  |         |  F  |  G  |  C  |  R  |  L  | BKSP |
 | LSHFT     |  A  |  O  |  E  |  U  |  I  |         |  D  |  H  |  T  |  N  |  S  |  DEL |
 | LCTRL     | : ; |  Q  |  J  |  K  |  X  |         |  B  |  M  |  W  |  V  |  Z  | ESC  |
-                    | CMD | LWR | SPC |         | ENT | RSE | ESP/ALT |
+                    | CMD | LWR | SPC |         | ENT | RSE | ALT |
 ```
-
-- **ESP/ALT (thumb derecho):** Tap = ALT, Hold = capa Espanol
 
 ### Lower (Numeros + Fn + Navegacion)
 
@@ -165,8 +163,8 @@ Stardew Valley **no soporta navegacion por teclado en menus de inventario/baules
 Caracteres espanoles via macros de Alt codes (Windows). Funciona en cualquier layout de Windows sin instalar software adicional.
 
 **Activar:**
-- **Hold RALT** (thumb derecho) — momentaneo, para uso rapido
-- **LWR + RSE + ESP** (desde Adjust) — toggle, para escritura prolongada en espanol
+- **LWR + RSE + ESP** (desde Adjust) — toggle, para escritura en espanol
+- Para volver a la base: **LWR + RSE + ESP** otra vez (toggle)
 
 **Posiciones:** Las vocales acentuadas estan en las mismas posiciones que en Dvorak (A, O, E, U, I en home row izquierda), asi que la memoria muscular es natural.
 
